@@ -33,7 +33,12 @@ export class Fahrzeug {
   }
 
   // TODO HÜ: wirft, wenn v < 0 oder v > maxGeschwindigkeit.
-  setGeschwindigkeit(v: number): void {}
+  setGeschwindigkeit(v: number): void {
+   if(v<0 || v>this.maxGeschwindigkeit){
+    throw new Error(`Die Geschwindigkeit liegt nicht im erlaubten Bereich (0-${this.maxGeschwindigkeit})`);
+   }
+   this._geschwindigkeit = v;
+  }
 
   // TODO HÜ: erhöht kmStand um geschwindigkeit * stunden.
   fahre(stunden: number): void {}
